@@ -1,1 +1,1091 @@
-Hello
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b10">
+<meta name="description"
+ content="Explore Android apps by CMPROD.">
+<title>CMPROD — Android Apps</title>
+
+<style>
+:root {
+  --bg:#090b10;
+  --surface:#12151c;
+  --border:#252a35;
+  --text:#f5f6fa;
+  --muted:#9297a5;
+}
+
+* { box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,
+    "Segoe UI",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+a { text-decoration:none; color:inherit; }
+
+button { font:inherit; }
+
+.container {
+  width:min(1120px,calc(100% - 40px));
+  margin:auto;
+}
+
+/* NAVIGATION */
+
+nav {
+  height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #ffffff0d;
+}
+
+.logo {
+  font-size:23px;
+  font-weight:850;
+  letter-spacing:-1.2px;
+}
+
+.logo span { color:#8b8cff; }
+
+.nav-right {
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.nav-right a {
+  font-size:13px;
+  color:#a6a8b4;
+  transition:.2s;
+}
+
+.nav-right a:hover { color:white; }
+
+.nav-badge {
+  font-size:11px;
+  padding:8px 12px;
+  border:1px solid var(--border);
+  border-radius:30px;
+  color:#bfc2cf;
+}
+
+/* HERO */
+
+.hero {
+  padding:105px 0 90px;
+  position:relative;
+}
+
+.eyebrow {
+  display:inline-flex;
+  gap:9px;
+  align-items:center;
+  padding:9px 14px;
+  border:1px solid #34364b;
+  border-radius:30px;
+  background:#171926;
+  color:#b7b8ff;
+  font-size:12px;
+  font-weight:650;
+  margin-bottom:30px;
+}
+
+.pulse {
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#9294ff;
+  box-shadow:0 0 12px #9294ff;
+}
+
+.hero h1 {
+  font-size:clamp(48px,8vw,92px);
+  letter-spacing:-.075em;
+  line-height:1.02;
+  font-weight:850;
+  margin:0 0 28px;
+  max-width:850px;
+}
+
+.gradient-text {
+  background:linear-gradient(
+    110deg,#a7a8ff,#b7a3ff,#70d7e4);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p {
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.75;
+  max-width:530px;
+  margin:0;
+}
+
+.hero-actions {
+  margin-top:35px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.primary-btn {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:#f4f4ff;
+  color:#12121b;
+  padding:15px 23px;
+  font-weight:750;
+  font-size:14px;
+  border-radius:12px;
+  transition:.25s;
+}
+
+.primary-btn:hover {
+  transform:translateY(-3px);
+  background:white;
+}
+
+.hero-note {
+  color:#777c89;
+  font-size:12px;
+}
+
+/* SECTION */
+
+.section-heading {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:30px;
+  gap:20px;
+}
+
+.section-kicker {
+  color:#9294ff;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.section-heading h2 {
+  font-size:35px;
+  font-weight:800;
+  letter-spacing:-1.5px;
+  margin:0;
+}
+
+.count {
+  color:#888d9d;
+  font-size:13px;
+}
+
+/* APP GRID */
+
+.app-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+
+.app-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:23px;
+  padding:24px;
+  min-width:0;
+  overflow:hidden;
+  transition:transform .3s,border-color .3s;
+}
+
+.app-card:hover {
+  transform:translateY(-5px);
+  border-color:#4a4e62;
+}
+
+.featured {
+  grid-column:1 / -1;
+}
+
+.app-top {
+  display:flex;
+  gap:17px;
+  align-items:center;
+  margin-bottom:24px;
+}
+
+.app-icon {
+  width:70px;
+  height:70px;
+  border-radius:19px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  box-shadow:0 10px 24px #0004;
+}
+
+.app-icon svg {
+  width:41px;
+  height:41px;
+}
+
+.icon-quit {
+  background:linear-gradient(145deg,#262629,#151517);
+  border:1px solid #414146;
+  color:#ff9800;
+}
+
+.icon-vega {
+  background:linear-gradient(135deg,#351954,#8b4cda);
+  color:#fff;
+}
+
+.icon-gpu {
+  background:linear-gradient(135deg,#102e42,#145f80);
+  color:#62d9ff;
+}
+
+.app-title {
+  font-size:20px;
+  font-weight:780;
+  letter-spacing:-.6px;
+  margin:0 0 7px;
+}
+
+.app-subtitle {
+  color:#9298a7;
+  font-size:12px;
+  margin:0;
+}
+
+.app-description {
+  color:#b0b4c0;
+  font-size:14px;
+  line-height:1.8;
+  margin:20px 0 25px;
+}
+
+.tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:0 0 24px;
+}
+
+.tag {
+  font-size:11px;
+  color:#aeb2c2;
+  background:#ffffff09;
+  border:1px solid #ffffff13;
+  padding:7px 10px;
+  border-radius:8px;
+}
+
+/* APP PREVIEW */
+
+.preview {
+  border-radius:17px;
+  overflow:hidden;
+  position:relative;
+  min-height:225px;
+  margin-bottom:23px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.preview-quit {
+  background:radial-gradient(
+    ellipse at 50% 100%,#583408,#19191c 65%);
+}
+
+.preview-vega {
+  background:radial-gradient(
+    ellipse at 50% 100%,#542887,#191329 70%);
+}
+
+.preview-gpu {
+  background:radial-gradient(
+    ellipse at 50% 100%,#115673,#101d29 70%);
+}
+
+.phone {
+  width:195px;
+  height:230px;
+  background:#08090c;
+  border:5px solid #383a42;
+  border-bottom:0;
+  border-radius:28px 28px 0 0;
+  padding:17px 13px;
+  position:relative;
+  top:25px;
+  box-shadow:0 0 55px #0006;
+}
+
+.phone-head {
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:13px;
+}
+
+.phone-muted {
+  font-size:8px;
+  color:#898b94;
+}
+
+.phone-panel {
+  background:#1e1e21;
+  padding:13px;
+  border-radius:12px;
+  text-align:center;
+  margin-top:11px;
+}
+
+.phone-number {
+  font-size:32px;
+  font-weight:800;
+}
+
+.phone-label {
+  font-size:10px;
+  font-weight:700;
+}
+
+.calendar {
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:9px;
+  margin-top:16px;
+}
+
+.calendar span {
+  width:12px;
+  height:12px;
+  background:#45454a;
+  border-radius:50%;
+  margin:auto;
+}
+
+.calendar span.today {
+  background:#ff9800;
+}
+
+.vega-phone {
+  background:linear-gradient(#211331,#100d18);
+  border-color:#5c4378;
+  text-align:center;
+}
+
+.vega-star {
+  font-size:52px;
+  color:#e1b6ff;
+  margin-top:14px;
+  text-shadow:0 0 25px #b75aff;
+}
+
+.vega-sign {
+  font-size:19px;
+  font-weight:750;
+  margin-top:5px;
+}
+
+.vega-daily {
+  font-size:9px;
+  color:#c4addb;
+  margin-top:12px;
+  line-height:1.7;
+}
+
+.gpu-phone {
+  border-color:#31586b;
+}
+
+.gpu-row {
+  padding:11px;
+  border-radius:9px;
+  background:#152d3b;
+  margin-top:9px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:9px;
+}
+
+.gpu-chip {
+  height:30px;
+  width:30px;
+  border-radius:6px;
+  display:grid;
+  place-items:center;
+  background:#124d65;
+  color:#6fe1ff;
+  font-size:13px;
+}
+
+.gpu-value {
+  color:#70ddff;
+  font-weight:750;
+}
+
+.preview-caption {
+  position:absolute;
+  bottom:13px;
+  left:15px;
+  font-size:10px;
+  color:#c4c7d0;
+  background:#080a10aa;
+  padding:6px 9px;
+  border-radius:7px;
+  z-index:2;
+}
+
+/* BUTTONS */
+
+.app-bottom {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.store-btn {
+  padding:12px 17px;
+  background:#f4f4fa;
+  color:#111319;
+  border-radius:11px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  font-size:12px;
+  font-weight:800;
+  white-space:nowrap;
+  transition:.2s;
+}
+
+.store-btn:hover {
+  background:white;
+  transform:translateY(-2px);
+}
+
+.store-btn svg {
+  width:16px;
+  height:16px;
+}
+
+.store-btn.disabled {
+  background:#292a31;
+  color:#999ca7;
+  cursor:default;
+}
+
+.store-btn.disabled:hover {
+  transform:none;
+  background:#292a31;
+}
+
+.status {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#8c92a0;
+  font-size:11px;
+}
+
+.status-dot {
+  width:7px;
+  height:7px;
+  background:#53d9a7;
+  border-radius:50%;
+}
+
+.status-dot.orange {
+  background:#ff9800;
+}
+
+.package {
+  font-size:10px;
+  color:#626875;
+  font-family:monospace;
+  margin-top:17px;
+  overflow-wrap:anywhere;
+}
+
+/* ABOUT */
+
+.about {
+  margin:100px 0 60px;
+  padding:45px;
+  border:1px solid #303348;
+  border-radius:25px;
+  background:
+    radial-gradient(
+      ellipse at 95% 0%,
+      #24224d 0%,transparent 55%),
+    #14161f;
+}
+
+.about h2 {
+  font-size:32px;
+  letter-spacing:-1px;
+  margin:0 0 15px;
+}
+
+.about p {
+  max-width:580px;
+  font-size:14px;
+  color:#9a9eae;
+  line-height:1.9;
+}
+
+.about a {
+  display:inline-block;
+  color:#b4b6ff;
+  font-weight:700;
+  font-size:13px;
+  margin-top:12px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top:1px solid #ffffff13;
+  padding:30px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.footer-brand {
+  font-weight:800;
+  font-size:16px;
+}
+
+.footer-copy {
+  font-size:12px;
+  color:#747986;
+}
+
+.footer-links {
+  display:flex;
+  gap:20px;
+}
+
+.footer-links a {
+  font-size:12px;
+  color:#9297a4;
+}
+
+.footer-links a:hover {
+  color:white;
+}
+
+@media(max-width:720px) {
+  nav { height:72px; }
+
+  .nav-right { gap:14px; }
+
+  .nav-badge { display:none; }
+
+  .hero {
+    padding:75px 0 70px;
+  }
+
+  .hero h1 {
+    font-size:clamp(46px,11vw,68px);
+  }
+
+  .hero p { font-size:15px; }
+
+  .app-grid {
+    grid-template-columns:1fr;
+  }
+
+  .featured { grid-column:auto; }
+
+  .section-heading h2 { font-size:29px; }
+
+  .app-card { padding:19px; }
+
+  .app-title { font-size:18px; }
+
+  .about {
+    margin:75px 0 45px;
+    padding:28px 24px;
+  }
+
+  .about h2 { font-size:27px; }
+
+  footer {
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior:auto!important;
+    transition:none!important;
+    animation:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- NAVIGATION -->
+
+<nav>
+  <a class="logo" href="#">
+    CM<span>PROD.</span>
+  </a>
+
+  <div class="nav-right">
+    <a href="#apps">Our Apps</a>
+    <a href="#about">About</a>
+    <a href="mailto:cmprod2026@gmail.com">
+      Contact
+    </a>
+    <div class="nav-badge">ANDROID DEVELOPER</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero">
+  <div class="eyebrow">
+    <span class="pulse"></span>
+    Independent App Developer
+  </div>
+
+  <h1>
+    Apps made<br>
+    <span class="gradient-text">for real life.</span>
+  </h1>
+
+  <p>
+    Useful tools, fresh perspectives, and everyday
+    inspiration. Discover Android apps designed
+    to make things simpler, smarter, and more enjoyable.
+  </p>
+
+  <div class="hero-actions">
+    <a class="primary-btn" href="#apps">
+      Explore Our Apps
+      <span aria-hidden="true">↗</span>
+    </a>
+
+    <span class="hero-note">
+      Built for Android
+    </span>
+  </div>
+</header>
+
+<!-- APPLICATIONS -->
+
+<section id="apps">
+
+  <div class="section-heading">
+    <div>
+      <div class="section-kicker">
+        Our Collection
+      </div>
+
+      <h2>Explore our apps.</h2>
+    </div>
+
+    <div class="count">03 Applications</div>
+  </div>
+
+  <div class="app-grid">
+
+    <!-- QUIT SMOKING -->
+
+    <article class="app-card featured">
+
+      <div class="app-top">
+        <div class="app-icon icon-quit">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M9 34L34 9"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"/>
+            <path d="M30 7L41 18"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"/>
+            <path d="M8 35L13 40"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"/>
+            <path d="M7 42L42 7"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div>
+          <h3 class="app-title">
+            Quit Smoking: Choose Your Way
+          </h3>
+          <p class="app-subtitle">
+            Health & Lifestyle
+          </p>
+        </div>
+      </div>
+
+      <div class="preview preview-quit">
+
+        <div class="phone">
+          <div class="phone-head">
+            Quit Smoking
+          </div>
+
+          <div class="phone-muted">
+            Less smoking. More you.
+          </div>
+
+          <div class="phone-panel">
+            <div class="phone-number">0</div>
+            <div class="phone-label">
+              smoke-free days
+            </div>
+
+            <div class="calendar">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+              <span></span><span></span>
+              <span class="today"></span>
+              <span></span><span></span>
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+
+        <span class="preview-caption">
+          Interface preview
+        </span>
+      </div>
+
+      <p class="app-description">
+        Take control of your smoking habits at your
+        own pace. Log cigarettes, track your daily
+        progress, and see your smoke-free days
+        in a simple calendar.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Habit Tracking</span>
+        <span class="tag">Daily Calendar</span>
+        <span class="tag">Personal Progress</span>
+      </div>
+
+      <div class="app-bottom">
+        <span class="status">
+          <span class="status-dot orange"></span>
+          Coming Soon
+        </span>
+
+        <span class="store-btn disabled">
+          In Development
+        </span>
+      </div>
+
+      <div class="package">
+        com.cmprod.quitsmoking
+      </div>
+    </article>
+
+    <!-- VEGA -->
+
+    <article class="app-card">
+
+      <div class="app-top">
+        <div class="app-icon icon-vega">
+          <svg viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="12"
+              stroke="currentColor"
+              stroke-width="2.3"/>
+            <path d="M24 2V10M24 38V46M2 24H10M38 24H46"
+              stroke="currentColor"
+              stroke-width="2.3"
+              stroke-linecap="round"/>
+            <path d="M24 14L27 21L34 24L27 27L24 34L21 27L14 24L21 21Z"
+              fill="currentColor"/>
+            <circle cx="37" cy="10" r="2"
+              fill="currentColor"/>
+          </svg>
+        </div>
+
+        <div>
+          <h3 class="app-title">
+            Vega
+          </h3>
+          <p class="app-subtitle">
+            Astrology & Horoscopes
+          </p>
+        </div>
+      </div>
+
+      <div class="preview preview-vega">
+
+        <div class="phone vega-phone">
+          <div class="phone-head">
+            ✧ VEGA
+          </div>
+
+          <div class="vega-star">✧</div>
+          <div class="vega-sign">Your Zodiac</div>
+
+          <div class="vega-daily">
+            Discover what the stars<br>
+            have in store for you.
+          </div>
+        </div>
+
+        <span class="preview-caption">
+          Concept preview
+        </span>
+      </div>
+
+      <p class="app-description">
+        Explore the world of astrology,
+        discover zodiac insights, and enjoy
+        horoscopes designed to add a little
+        cosmic inspiration to your day.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Astrology</span>
+        <span class="tag">Zodiac Signs</span>
+        <span class="tag">Horoscopes</span>
+      </div>
+
+      <div class="app-bottom">
+        <span class="status">
+          <span class="status-dot"></span>
+          Android App
+        </span>
+
+        <a class="store-btn"
+          href="https://play.google.com/store/apps/details?id=com.cmprod.astrology"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <svg viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path fill="#34a853"
+              d="M3 2v20l10-10z"/>
+            <path fill="#4285f4"
+              d="M3 2l12 8-2 2z"/>
+            <path fill="#fbbc04"
+              d="M13 12l2 2-12 8z"/>
+            <path fill="#ea4335"
+              d="M15 10l6 4-6 4-2-6z"/>
+          </svg>
+
+          Google Play
+        </a>
+      </div>
+
+      <div class="package">
+        com.cmprod.astrology
+      </div>
+
+    </article>
+
+    <!-- GPU COMPARE -->
+
+    <article class="app-card">
+
+      <div class="app-top">
+        <div class="app-icon icon-gpu">
+          <svg viewBox="0 0 48 48" fill="none">
+            <rect x="8" y="12" width="32" height="24"
+              rx="4" stroke="currentColor"
+              stroke-width="2.5"/>
+            <rect x="17" y="19" width="14" height="10"
+              rx="2" stroke="currentColor"
+              stroke-width="2"/>
+            <path d="M15 6V12M24 6V12M33 6V12
+              M15 36V42M24 36V42M33 36V42
+              M2 20H8M2 28H8M40 20H46M40 28H46"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div>
+          <h3 class="app-title">
+            GPU Compare & Specs
+          </h3>
+          <p class="app-subtitle">
+            Technology & Utilities
+          </p>
+        </div>
+      </div>
+
+      <div class="preview preview-gpu">
+
+        <div class="phone gpu-phone">
+          <div class="phone-head">
+            GPU Compare
+          </div>
+
+          <div class="phone-muted">
+            Explore GPU specifications
+          </div>
+
+          <div class="gpu-row">
+            <div class="gpu-chip">▣</div>
+            <div>
+              Graphics Card A
+              <div class="gpu-value">
+                Specifications
+              </div>
+            </div>
+          </div>
+
+          <div class="gpu-row">
+            <div class="gpu-chip">▣</div>
+            <div>
+              Graphics Card B
+              <div class="gpu-value">
+                Specifications
+              </div>
+            </div>
+          </div>
+
+          <div class="gpu-row">
+            <span>Compare Specs</span>
+            <span class="gpu-value">VS</span>
+          </div>
+        </div>
+
+        <span class="preview-caption">
+          Concept preview
+        </span>
+      </div>
+
+      <p class="app-description">
+        Explore graphics card specifications
+        and compare GPUs side by side.
+        A practical reference tool for PC
+        enthusiasts and hardware shoppers.
+      </p>
+
+      <div class="tags">
+        <span class="tag">GPU Specs</span>
+        <span class="tag">Comparison</span>
+        <span class="tag">Hardware</span>
+      </div>
+
+      <div class="app-bottom">
+        <span class="status">
+          <span class="status-dot"></span>
+          Android App
+        </span>
+
+        <a class="store-btn"
+          href="https://play.google.com/store/apps/details?id=com.cmprod.gpucompare"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <svg viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path fill="#34a853"
+              d="M3 2v20l10-10z"/>
+            <path fill="#4285f4"
+              d="M3 2l12 8-2 2z"/>
+            <path fill="#fbbc04"
+              d="M13 12l2 2-12 8z"/>
+            <path fill="#ea4335"
+              d="M15 10l6 4-6 4-2-6z"/>
+          </svg>
+
+          Google Play
+        </a>
+      </div>
+
+      <div class="package">
+        com.cmprod.gpucompare
+      </div>
+
+    </article>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+  <div class="section-kicker">
+    About the Developer
+  </div>
+
+  <h2>Small apps. Big ideas.</h2>
+
+  <p>
+    CMPROD is an independent Android app
+    developer creating practical tools and
+    engaging digital experiences.
+    From everyday habits to astrology and
+    technology, each app is built around
+    a simple idea: make something useful.
+  </p>
+
+  <a href="mailto:cmprod2026@gmail.com">
+    Get in touch ↗
+  </a>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-brand">
+    CMPROD.
+  </div>
+
+  <div class="footer-copy">
+    © 2026 CMPROD. All rights reserved.
+  </div>
+
+  <div class="footer-links">
+    <a href="#apps">Apps</a>
+    <a href="mailto:cmprod2026@gmail.com">
+      Contact
+    </a>
+  </div>
+</footer>
+
+</div>
+
+</body>
+</html>
